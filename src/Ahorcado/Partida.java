@@ -4,11 +4,22 @@
 
 package Ahorcado;
 
+import Ahorcado.Horca;
+import Ahorcado.Palabra;
+
 /************************************************************/
 /**
  * 
  */
 public class Partida {
+	/**
+	 * 
+	 */
+	public Horca horca;
+	/**
+	 * 
+	 */
+	public Palabra palabra;
 
 	/**
 	 * 
