@@ -2,6 +2,8 @@
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:Codegen="http://www.eclipse.org/papyrus/Codegen/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_vNzZcDmVEeekt9OrzlmDnA" name="Ahorcado">
     <packagedElement xmi:type="uml:Class" xmi:id="_u0jEkDmYEeekt9OrzlmDnA" name="Partida">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_G4C7ckCMEee0p-cWKwG24g" name="horca" type="_ZNrloDmfEeekt9OrzlmDnA" aggregation="composite" association="_G4BtUECMEee0p-cWKwG24g"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_83T2UECLEee0p-cWKwG24g" name="palabra" type="_6hDVsDmdEeekt9OrzlmDnA" aggregation="composite" association="_827b0ECLEee0p-cWKwG24g"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_jG2ksDsUEeeRycM3AiGd6w" name="mostrarProgreso"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_t6TgMDsUEeeRycM3AiGd6w" name="pedirLetra">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Eg0aEDsVEeeRycM3AiGd6w" name="letra" direction="return">
@@ -35,8 +37,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-ZVQsDsPEeeRycM3AiGd6w"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-ZY7EDsPEeeRycM3AiGd6w" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_83TPQECLEee0p-cWKwG24g" name="partida" type="_u0jEkDmYEeekt9OrzlmDnA" aggregation="composite" association="_827b0ECLEee0p-cWKwG24g"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_uiACYDmgEeekt9OrzlmDnA" name="elegirPalabra"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_uiACYDmgEeekt9OrzlmDnA" name="elegirPalabra">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_FotYYESbEeeyIu4AaO1S4w" name="palabra" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_-LgM4DsLEeeRycM3AiGd6w" name="comprobarLetra">
         <ownedComment xmi:type="uml:Comment" xmi:id="_E-S1sDsUEeeRycM3AiGd6w" annotatedElement="_-LgM4DsLEeeRycM3AiGd6w">
           <body>comprueba si letra está en la palabra oculta</body>
@@ -89,7 +94,6 @@
         </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_G4C7cUCMEee0p-cWKwG24g" name="partida" type="_u0jEkDmYEeekt9OrzlmDnA" aggregation="composite" association="_G4BtUECMEee0p-cWKwG24g"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9tl4QDmfEeekt9OrzlmDnA" name="dibujar"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_iihP8DsREeeRycM3AiGd6w" name="incrementarFallo">
         <ownedComment xmi:type="uml:Comment" xmi:id="_KZI_sDsSEeeRycM3AiGd6w" annotatedElement="_iihP8DsREeeRycM3AiGd6w">
@@ -109,13 +113,13 @@
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_83SBIECLEee0p-cWKwG24g" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_83SBIUCLEee0p-cWKwG24g" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_83T2UECLEee0p-cWKwG24g" name="palabra" type="_6hDVsDmdEeekt9OrzlmDnA" association="_827b0ECLEee0p-cWKwG24g"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_83TPQECLEee0p-cWKwG24g" name="partida" type="_u0jEkDmYEeekt9OrzlmDnA" association="_827b0ECLEee0p-cWKwG24g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_G4BtUECMEee0p-cWKwG24g" name="contiene" memberEnd="_G4C7cUCMEee0p-cWKwG24g _G4C7ckCMEee0p-cWKwG24g">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G4CUYECMEee0p-cWKwG24g" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G4C7cECMEee0p-cWKwG24g" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_G4C7ckCMEee0p-cWKwG24g" name="horca" type="_ZNrloDmfEeekt9OrzlmDnA" association="_G4BtUECMEee0p-cWKwG24g"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_G4C7cUCMEee0p-cWKwG24g" name="partida" type="_u0jEkDmYEeekt9OrzlmDnA" association="_G4BtUECMEee0p-cWKwG24g"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_BbwiMDmXEeekt9OrzlmDnA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BbyXYDmXEeekt9OrzlmDnA" source="http://www.eclipse.org/uml2/2.0.0/UML">

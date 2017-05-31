@@ -4,8 +4,6 @@
 
 package Ahorcado;
 
-import Ahorcado.Partida;
-
 /************************************************************/
 /**
  * 
@@ -23,15 +21,14 @@ public class Palabra {
 	 * son las letras que el jugador ha dicho pero no estaban en la palabra
 	 */
 	private char[] letrasFallidas;
-	/**
-	 * 
-	 */
-	public Partida partida;
 
 	/**
 	 * 
 	 */
-	public void elegirPalabra() {
+	public String elegirPalabra() {
+		String[] palabras = {"Jirafa", "Perro", "Gato", "Gallo", "Elefante","Rata","Tortuga"};
+		String elegida = palabras[(int) (Math.round(Math.random() * (palabras.length-1)))];	
+		return elegida;
 	}
 
 	/**
@@ -40,6 +37,8 @@ public class Palabra {
 	 * @return estaba devuelve verdadero si la letra está al menos una vez en la palabra y falso en caso contrario
 	 */
 	public boolean comprobarLetra(char letra) {
+		if (palabraOculta.indexOf(letra)==-1) return false;
+		else return true;
 	}
 
 	/**
