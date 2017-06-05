@@ -18,5 +18,10 @@ public class PalabraTest {
 	public void testElegirPalabra() {
 		assertNotNull(palabraOculta.elegirPalabra());
 	}
+	
+	@Test
+	public void testComprobarLetraUsada() {
+		fail("No implementado");
+	}
 
 }
