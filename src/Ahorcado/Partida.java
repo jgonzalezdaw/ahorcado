@@ -4,8 +4,7 @@
 
 package Ahorcado;
 
-import Ahorcado.Horca;
-import Ahorcado.Palabra;
+import java.util.Scanner;
 
 /************************************************************/
 /**
@@ -15,35 +14,89 @@ public class Partida {
 	/**
 	 * 
 	 */
-	public Horca horca;
+	public static Horca horca;
 	/**
 	 * 
 	 */
-	public Palabra palabra;
+	public static Palabra palabra;
 
 	/**
-	 * 
+	 * Muestra el estado de la horca y los resultados de palabra
 	 */
-	public void mostrarProgreso() {
+	public static void mostrarProgreso() {
+		horca.dibujar();
+		palabra.mostrarResultados();
 	}
 
 	/**
+	 * Solicita una letra al usuario
 	 * 
-	 * @return letra 
+	 * @return letra
 	 */
-	public char pedirLetra() {
+	public static char pedirLetra() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.print("Introduce una letra: ");
+		char letra = entrada.nextLine().charAt(0);
+		return letra;
 	}
 
 	/**
+	 * Pide la respuesta
 	 * 
+	 * @return palabra true si era la que buscábamos o false en caso contrario
 	 */
-	public void resolver() {
+	public static boolean resolver() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.print("Introduce la respuesta: ");
+		return palabra.comprobarPalabra(entrada.nextLine());
 	}
 
 	/**
+	 * Comprueba tanto si hemos agotado los fallos como si hemos acertado todas
+	 * las letras.
 	 * 
-	 * @return fin 
+	 * @return fin true si hemos ganado o perdido, false si todavía jugamos
 	 */
-	public boolean comprobarFinal() {
+	public static boolean comprobarFinal() {
+		return (horca.comprobarSiPerdido() || palabra.comprobarSiGanado());
+	}
+
+	public static int elegirDelMenu() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Elige una opción:");
+		System.out.println("1. Letra");
+		System.out.println("2. Resolver");
+		System.out.println("3. Abandonar");
+		return entrada.nextInt();
+
+	}
+
+	public static void main(String[] args) {
+		horca = new Horca();
+		palabra = new Palabra();
+		boolean noHaResueltoMal = true;
+		palabra.elegirPalabra();
+		while (!comprobarFinal() && noHaResueltoMal) {
+			switch (elegirDelMenu()) {
+			case 1:
+				if (!palabra.comprobarLetra(pedirLetra())) horca.incrementarFallo();;
+				mostrarProgreso();	
+				break;
+			case 2:
+				if (resolver())
+					System.out.println("Has ganado!");
+				else {
+					System.out.println("Lo siento, has perdido...");
+					noHaResueltoMal = false;
+				}
+				break;
+			case 3:
+				System.exit(0);
+			default:
+				break;
+			}
+
+		}
+
 	}
 };
